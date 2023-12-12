@@ -3,3 +3,7 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
+
+#main-section .calander-figure {
+  cursor: pointer;
+}

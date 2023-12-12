@@ -27,16 +27,49 @@ const christmasImagesArray = [
   "Date_24.jpg",
 ];
 
+//I AM THE SENATE
+const notYetImage = "date_01_no.jpg";
+
+const openDoorImage = "christmas-gift-svg";
+
 const baseUrl = "./Assets/images/";
 
 const makeCalander = () => {
-  christmasImagesArray.forEach((img) => {
+  christmasImagesArray.forEach((img, index) => {
     const imageFigure = document.createElement("figure");
     imageFigure.classList.add("calander-figure");
+
+    const imageIdArray = [
+      "doorOne",
+      "doorTwo",
+      "doorThree",
+      "doorFour",
+      "doorFive",
+      "doorSix",
+      "doorSeven",
+      "doorEight",
+      "doorNine",
+      "doorTen",
+      "doorEleven",
+      "doorTwelve",
+      "doorThirteen",
+      "doorFourteen",
+      "doorFifteen",
+      "doorSixteen",
+      "doorSeventeen",
+      "doorEighteen",
+      "doorNineteen",
+      "doorTwenty",
+      "doorTwentyOne",
+      "doorTwentyTwo",
+      "doorTwentyThree",
+      "doorTwentyFour",
+    ];
 
     const galleryImage = document.createElement("img");
     const galleryImageSovs = baseUrl + img;
     galleryImage.src = galleryImageSovs;
+    galleryImage.setAttribute("data-id", imageIdArray[index]);
 
     imageFigure.appendChild(galleryImage);
     mainContainer.appendChild(imageFigure);
