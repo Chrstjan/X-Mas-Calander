@@ -7,3 +7,7 @@
 #main-section .calander-figure {
   cursor: pointer;
 }
+
+#main-section .calander-figure img {
+  width: 100%;
+}

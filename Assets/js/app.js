@@ -30,11 +30,16 @@ const christmasImagesArray = [
 //I AM THE SENATE
 const notYetImage = "date_01_no.jpg";
 
-const openDoorImage = "christmas-gift-svg";
+const calanderGiftArray = ["christmas-gift.svg", "christmas-tree.svg", "christmas-snowman.svg", "christmas-hat.svg"];
+
+const shuffledGiftArray = calanderGiftArray.sort(() => 0.5 - Math.random());
 
 const baseUrl = "./Assets/images/";
 
 const makeCalander = () => {
+  const currentDate = new Date();
+  const currentDay = currentDate.getDate();
+
   christmasImagesArray.forEach((img, index) => {
     const imageFigure = document.createElement("figure");
     imageFigure.classList.add("calander-figure");
@@ -70,6 +75,20 @@ const makeCalander = () => {
     const galleryImageSovs = baseUrl + img;
     galleryImage.src = galleryImageSovs;
     galleryImage.setAttribute("data-id", imageIdArray[index]);
+
+    const openCalanderDoor = () => {
+      const giftIndex = index % shuffledGiftArray.length;
+      galleryImage.src = baseUrl + shuffledGiftArray[giftIndex];
+    };
+
+    if (index + 1 <= currentDay) {
+      galleryImage.addEventListener("click", openCalanderDoor);
+    }
+    else {
+      galleryImage.addEventListener("click", () => {
+        galleryImage.src = baseUrl + notYetImage;
+      });
+    };
 
     imageFigure.appendChild(galleryImage);
     mainContainer.appendChild(imageFigure);
